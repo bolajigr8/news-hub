@@ -2,32 +2,176 @@
 @tailwind components;
 @tailwind utilities;
 
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgba(var(--color-primary-rgb), 1);
+  font-family: var(--font-primary);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+body::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  color: var(--color-links);
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--color-links-hover);
+  text-decoration: none;
+}
+.underline {
+  width: 4.5rem;
+  height: 0.1rem;
+  background: darkgrey;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+}
+
+#main {
+  margin-top: 90px;
+}
+
+/*--------------------------------------------------------------
+# Sections & Section Header
+--------------------------------------------------------------*/
+section {
+  padding: 40px 0;
+  overflow: hidden;
+  scroll-margin-top: 70px;
+}
+
+.section-header {
+  border-bottom: 2px solid var(--color-black);
+}
+
+.section-header h2 {
+  font-size: 50px;
+  color: var(--color-black);
+}
+
+.section-header p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Page title
+--------------------------------------------------------------*/
+.page-title {
+  font-size: 70px;
+  color: var(--color-black);
+}
+
+/* Form Input Fieldds */
+.form-control:active,
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--color-black);
+}
+
+/* Botton */
+.btn:active,
+.btn:focus {
+  outline: none;
+}
+
+.btn.btn-primary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+/*--------------------------------------------------------------
+# Not Found Page
+--------------------------------------------------------------*/
+
+.not-found {
+  padding: 0;
+  background: url('../../public/assets/img/not-found-bj.jpg');
+  background-position: center;
+  background-size: cover;
+}
+.cover-background {
+  position: relative !important;
+  background-size: cover !important;
+  overflow: hidden !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+
+.error-page {
+  background-color: #bababa4a;
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(234, 234, 235, 0.2);
+  padding: 80px 20px;
+}
+.text-center {
+  text-align: center !important;
+}
+.error-page h1 {
+  font-size: 200px;
+  line-height: 1;
+  font-weight: 600;
+}
+.text-secondary {
+  color: #15395a !important;
+}
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.p-w {
+  max-width: 23rem;
+}
+
+/* new */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-colu-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  .grid-colu-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+@media (min-width: 1280px) {
+  .grid-colu-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.footer-gap {
+  gap: 4rem;
 }
