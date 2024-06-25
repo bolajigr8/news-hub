@@ -78,7 +78,7 @@ export async function DELETE(
       },
       status: 200,
     })
-  } catch (error) {
+  } catch (error: any) {
     console.log(error.message)
     return new NextResponse(JSON.stringify({ message: 'SERVER ERROR' }), {
       status: 500,
