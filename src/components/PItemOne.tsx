@@ -5,7 +5,14 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import { PostItemsOne } from '@/types'
 
 const PItemOne = ({ item, large }: { item: PostItemsOne; large: boolean }) => {
+  if (!item) {
+    // Handle the case where item is null or undefined
+    return <div>No data available</div>
+  }
+
   const { _id, img, category, date, title, brief, avatar, author } = item
+
+  console.log(item)
 
   return (
     <section key={_id} className={`post-entry-1 ${large ? 'lg' : undefined}`}>

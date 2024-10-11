@@ -32,6 +32,7 @@ const Posts = () => {
     try {
       const res = await axios('/api/postitem')
       const data = await res.data
+      console.log(data)
       setItems(data)
     } catch (error: any | null) {
       console.log(error.message)
@@ -59,7 +60,7 @@ const Posts = () => {
   useEffect(() => {
     getItemsData()
     // get the id for the to: true from the db
-    getSinglePostitem('6673340676505667a32a8e9a')
+    getSinglePostitem('6708f5e7bfed0a83da9f27db')
   }, [])
 
   // items filtererd out
@@ -76,6 +77,7 @@ const Posts = () => {
   }
 
   // for trending
+
   const filterTrendingItems = (items: PostItemsOne[]): JSX.Element[] => {
     const trendingItems = items.filter(
       (item: { trending: String }) => item.trending === 'true'
